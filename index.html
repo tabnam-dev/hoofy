@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Rahaf 💘</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* repeating Rahaf background */
+    .rahaf-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 38px;
+      color: rgba(255, 77, 109, 0.15);
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      place-items: center;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      z-index: 1;
+      position: relative;
+      max-width: 90%;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #ff4d6d;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .no-choice {
+      font-size: 16px;
+      color: #ff4d6d;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background-color: #ccc;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- RAHAF EVERYWHERE -->
+  <div class="rahaf-bg">
+    <span>rahaf</span><span>rahaf</span><span>rahaf</span><span>rahaf</span>
+    <span>rahaf</span><span>rahaf</span><span>rahaf</span><span>rahaf</span>
+    <span>rahaf</span><span>rahaf</span><span>rahaf</span><span>rahaf</span>
+    <span>rahaf</span><span>rahaf</span><span>rahaf</span><span>rahaf</span>
+  </div>
+
+  <!-- PAGE 1 -->
+  <div class="container" id="page1">
+    <h1>Rahaf 💖</h1>
+    <div class="subtitle">will you be my valentine, my hoofy?</div>
+    <div class="no-choice">you have no choice 😌</div>
+
+    <button id="yes" onclick="yesClicked()">YES</button>
+    <button id="no">NO</button>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="container" id="page2" style="display:none;">
+    <h1>YEAH THAT’S WHAT I THOUGHT 😌❤️</h1>
+    <div class="subtitle">come here, my hoofy 🫶</div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    function yesClicked() {
+      document.getElementById("page1").style.display = "none";
+      document.getElementById("page2").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
