@@ -1,0 +1,2420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Multiverse of Us</title>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root {
+    --background: #070914;
+    --background-2: #0e1024;
+    --card: rgba(255,255,255,0.055);
+    --card-hover: rgba(255,255,255,0.09);
+    --border: rgba(255,255,255,0.13);
+
+    --white: #f8f8ff;
+    --muted: #aeb3c7;
+
+    --gold: #f1d18f;
+    --pink: #ffb5d0;
+    --purple: #a98cff;
+    --blue: #8fc8ff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--white);
+    background:
+        radial-gradient(
+            circle at 50% -20%,
+            #292953 0%,
+            #11142b 35%,
+            #070914 70%
+        );
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   STAR BACKGROUND
+========================================================= */
+
+#space {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    opacity: 0.45;
+
+    animation:
+        twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.7);
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+/* Shooting stars */
+
+.shooting-star {
+    position: absolute;
+
+    width: 120px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            white,
+            transparent
+        );
+
+    transform: rotate(-30deg);
+
+    opacity: 0;
+
+    animation:
+        shooting 7s linear infinite;
+}
+
+@keyframes shooting {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(0,0)
+            rotate(-30deg);
+    }
+
+    72% {
+        opacity: 0;
+    }
+
+    76% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0;
+
+        transform:
+            translate(-380px,230px)
+            rotate(-30deg);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.container {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1100px, 92vw);
+
+    margin: auto;
+
+    padding:
+        55px 0
+        90px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    text-align: center;
+
+    max-width: 850px;
+
+    margin:
+        0 auto 40px;
+}
+
+.eyebrow {
+    color: var(--gold);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+.main-title {
+    font-size:
+        clamp(
+            46px,
+            10vw,
+            92px
+        );
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    font-weight: 700;
+
+    margin: 0;
+}
+
+.main-title span {
+    display: block;
+
+    background:
+        linear-gradient(
+            120deg,
+            #ffffff 10%,
+            #ffbdd5 50%,
+            #f1d18f 90%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.subtitle {
+    margin-top: 22px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    letter-spacing: 1.5px;
+
+    line-height: 1.8;
+}
+
+/* Anniversary badge */
+
+.anniversary {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 27px;
+
+    padding:
+        10px 17px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.14);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #d8d9e4;
+}
+
+.anniversary strong {
+    color: var(--pink);
+
+    font-weight: 600;
+}
+
+/* =========================================================
+   HERO PLANET
+========================================================= */
+
+.hero-space {
+    position: relative;
+
+    width: 260px;
+    height: 240px;
+
+    margin:
+        25px auto 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.hero-planet {
+    position: relative;
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #fff3d2 0%,
+            #dda7cf 17%,
+            #8b6bc2 53%,
+            #29264e 100%
+        );
+
+    box-shadow:
+        0 0 35px rgba(178,137,255,0.5),
+        0 0 100px rgba(140,112,255,0.22);
+
+    animation:
+        floating 4s ease-in-out infinite;
+}
+
+.hero-ring {
+    position: absolute;
+
+    width: 210px;
+    height: 67px;
+
+    border:
+        1px solid
+        rgba(222,194,255,0.65);
+
+    border-radius: 50%;
+
+    transform:
+        rotate(-20deg);
+}
+
+.hero-ring.second {
+    width: 185px;
+    height: 58px;
+
+    transform:
+        rotate(32deg);
+
+    opacity: 0.45;
+}
+
+.hero-moon {
+    position: absolute;
+
+    width: 16px;
+    height: 16px;
+
+    border-radius: 50%;
+
+    background: #e2e4ef;
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.5);
+
+    animation:
+        moonOrbit 8s linear infinite;
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes moonOrbit {
+
+    from {
+        transform:
+            rotate(0deg)
+            translateX(100px)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg)
+            translateX(100px)
+            rotate(-360deg);
+    }
+}
+
+/* =========================================================
+   UNIVERSE SECTION
+========================================================= */
+
+.section-title {
+    text-align: center;
+
+    font-size: 30px;
+
+    font-weight: 600;
+
+    margin:
+        20px 0 23px;
+}
+
+.universe-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(215px, 1fr)
+        );
+
+    gap: 16px;
+}
+
+/* =========================================================
+   UNIVERSE CARD
+========================================================= */
+
+.universe-card {
+    position: relative;
+
+    min-height: 240px;
+
+    padding: 22px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.07),
+            rgba(255,255,255,0.025)
+        );
+
+    cursor: pointer;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.universe-card:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(255,190,220,0.45);
+
+    background:
+        var(--card-hover);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.4);
+}
+
+.universe-number {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: var(--gold);
+
+    font-weight: 600;
+}
+
+.universe-card h3 {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 240px;
+
+    margin:
+        13px 0 9px;
+
+    font-size: 21px;
+
+    line-height: 1.12;
+
+    font-weight: 600;
+}
+
+.universe-card p {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 235px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+.locked {
+    position: relative;
+
+    z-index: 2;
+
+    display: inline-block;
+
+    margin-top: 18px;
+
+    color: #b9bdce;
+
+    font-size: 9px;
+
+    letter-spacing: 1.8px;
+}
+
+/* =========================================================
+   PLANETS ON CARDS
+========================================================= */
+
+.card-planet {
+    position: absolute;
+
+    right: -25px;
+    bottom: -25px;
+
+    width: 125px;
+    height: 125px;
+
+    border-radius: 50%;
+
+    opacity: 0.95;
+
+    animation:
+        floating 5s ease-in-out infinite;
+}
+
+/* Universe 1 */
+
+.planet-one {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #d7ccff,
+            #63569d 45%,
+            #17172f 100%
+        );
+
+    box-shadow:
+        0 0 45px rgba(120,100,255,0.25);
+}
+
+/* Universe 2 */
+
+.planet-two {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #ffe5ee,
+            #df8fab 38%,
+            #583c70 75%,
+            #24182d
+        );
+
+    box-shadow:
+        0 0 45px rgba(255,150,190,0.25);
+}
+
+/* Universe 3 */
+
+.planet-three {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #e8ddbd,
+            #9b9c77 38%,
+            #48504a 72%,
+            #202728
+        );
+}
+
+/* Universe 4 */
+
+.planet-four {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #ffd8b0,
+            #d88b4b 38%,
+            #743c35 72%,
+            #2b1719
+        );
+
+    box-shadow:
+        0 0 45px rgba(255,166,100,0.25);
+}
+
+/*
+   CARTOON PLANET EARS
+*/
+
+.planet-four::before,
+.planet-four::after {
+    content: "";
+
+    position: absolute;
+
+    top: -30px;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffd3a6,
+            #b85e42 65%,
+            #71342f
+        );
+}
+
+.planet-four::before {
+    left: 8px;
+}
+
+.planet-four::after {
+    right: 8px;
+}
+
+/* Universe 5 */
+
+.planet-five {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #ffffff,
+            #ffb6cf 22%,
+            #9a67c8 55%,
+            #252049 100%
+        );
+
+    box-shadow:
+        0 0 45px rgba(255,170,220,0.4),
+        0 0 90px rgba(155,105,210,0.25);
+}
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress {
+    max-width: 450px;
+
+    margin:
+        27px auto 0;
+
+    text-align: center;
+
+    color: #858ba2;
+
+    font-size: 11px;
+}
+
+.progress-bar {
+    width: 100%;
+
+    height: 5px;
+
+    margin-top: 9px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.08);
+}
+
+.progress-fill {
+    height: 100%;
+
+    width: 0%;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--pink),
+            var(--gold)
+        );
+
+    transition:
+        width 0.5s ease;
+}
+
+/* =========================================================
+   MEMORIES FOLDER
+========================================================= */
+
+.memories-folder {
+    margin:
+        48px auto 0;
+
+    padding: 23px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 24px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.memories-folder:hover {
+    transform: translateY(-3px);
+
+    background:
+        rgba(255,255,255,0.065);
+}
+
+.folder-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.folder-icon {
+    position: relative;
+
+    width: 55px;
+    height: 41px;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1d08d,
+            #c79d59
+        );
+
+    box-shadow:
+        0 10px 30px rgba(225,174,86,0.2);
+}
+
+.folder-icon::before {
+    content: "";
+
+    position: absolute;
+
+    left: 5px;
+    top: -8px;
+
+    width: 23px;
+    height: 12px;
+
+    border-radius:
+        5px 5px 0 0;
+
+    background:
+        #e2bc74;
+}
+
+.memories-folder h3 {
+    margin-bottom: 4px;
+
+    font-size: 19px;
+}
+
+.memories-folder p {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.open-folder {
+    padding:
+        9px 15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    border-radius: 999px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    text-align: center;
+
+    margin-top: 48px;
+
+    color: #6f758d;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 18px;
+
+    background:
+        rgba(2,3,9,0.82);
+
+    backdrop-filter:
+        blur(16px);
+}
+
+.modal.active {
+    display: flex;
+
+    animation:
+        fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-box {
+    width:
+        min(720px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 31px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.14);
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            160deg,
+            #171b36,
+            #0d1020
+        );
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.65);
+
+    animation:
+        modalUp 0.35s ease;
+}
+
+@keyframes modalUp {
+
+    from {
+        transform:
+            translateY(18px);
+
+        opacity: 0;
+    }
+
+    to {
+        transform:
+            translateY(0);
+
+        opacity: 1;
+    }
+}
+
+.close {
+    float: right;
+
+    border: 0;
+
+    background: none;
+
+    color: #9da4bc;
+
+    font-size: 29px;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+.lock-symbol {
+    text-align: center;
+
+    font-size: 32px;
+
+    margin:
+        8px 0 12px;
+}
+
+.modal-box h2 {
+    text-align: center;
+
+    font-size: 30px;
+
+    font-weight: 600;
+
+    margin-bottom: 12px;
+}
+
+.modal-description {
+    max-width: 450px;
+
+    margin: auto;
+
+    color: var(--muted);
+
+    text-align: center;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+.password {
+    display: block;
+
+    width: min(280px,100%);
+
+    margin:
+        22px auto 9px;
+
+    padding:
+        13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 20px;
+
+    letter-spacing: 8px;
+}
+
+.password:focus {
+    border-color:
+        rgba(255,180,210,0.55);
+}
+
+.error {
+    min-height: 18px;
+
+    color: #ff9bb9;
+
+    text-align: center;
+
+    font-size: 11px;
+}
+
+.button {
+    display: block;
+
+    margin:
+        12px auto 0;
+
+    padding:
+        11px 20px;
+
+    border:
+        1px solid
+        var(--gold);
+
+    border-radius: 999px;
+
+    background: transparent;
+
+    color: var(--gold);
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s,
+        color 0.25s,
+        transform 0.25s;
+}
+
+.button:hover {
+    background:
+        var(--gold);
+
+    color:
+        #121320;
+
+    transform:
+        translateY(-1px);
+}
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.story-icon {
+    text-align: center;
+
+    color: var(--gold);
+
+    font-size: 34px;
+
+    margin-bottom: 5px;
+}
+
+.story-title {
+    font-size: 34px !important;
+
+    line-height: 1.1;
+}
+
+.story-text {
+    color: #dfe1ed;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    white-space: pre-line;
+
+    margin-top: 21px;
+}
+
+.story-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 28px;
+}
+
+.anniversary-final {
+    margin-top: 30px;
+
+    text-align: center;
+}
+
+.anniversary-final-title {
+    color: var(--pink);
+
+    font-size: 29px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+.anniversary-final-date {
+    color: var(--gold);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    margin-top: 8px;
+}
+
+.anniversary-final-message {
+    color: var(--pink);
+
+    font-size: 17px;
+
+    margin-top: 20px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery-title {
+    margin-top: 7px !important;
+}
+
+.gallery-subtitle {
+    color: var(--muted);
+
+    text-align: center;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.gallery-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin-top: 22px;
+}
+
+.photo-card {
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    border-radius: 18px;
+
+    background:
+        #080a13;
+}
+
+.photo-card img {
+    display: block;
+
+    width: 100%;
+
+    height: 420px;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.photo-card:hover img {
+    transform:
+        scale(1.04);
+}
+
+.photo-caption {
+    padding:
+        11px 13px;
+
+    color: #c7cad8;
+
+    font-size: 11px;
+}
+
+.photo-placeholder {
+    height: 420px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #858ba3;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92vw;
+
+        padding-top: 38px;
+    }
+
+    .main-title {
+        letter-spacing: -2px;
+    }
+
+    .universe-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .universe-card {
+        min-height: 225px;
+
+        padding: 17px;
+    }
+
+    .universe-card h3 {
+        font-size: 18px;
+    }
+
+    .universe-card p {
+        font-size: 10px;
+    }
+
+    .card-planet {
+        width: 90px;
+        height: 90px;
+
+        right: -20px;
+        bottom: -20px;
+    }
+
+    .planet-four::before,
+    .planet-four::after {
+        width: 39px;
+        height: 39px;
+
+        top: -23px;
+    }
+
+    .memories-folder {
+        align-items: flex-start;
+    }
+
+    .open-folder {
+        display: none;
+    }
+
+    .gallery-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .photo-card img,
+    .photo-placeholder {
+        height: 430px;
+    }
+
+    .modal-box {
+        padding: 23px 19px;
+    }
+
+    .story-text {
+        font-size: 15px;
+
+        line-height: 1.85;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- =======================================================
+     ANIMATED SPACE BACKGROUND
+======================================================= -->
+
+<div id="space"></div>
+
+
+<!-- =======================================================
+     MAIN PAGE
+======================================================= -->
+
+<main class="container">
+
+<section class="hero">
+
+    <div class="eyebrow">
+        22 November · Our Anniversary
+    </div>
+
+
+    <h1 class="main-title">
+        <span>The Multiverse</span>
+        <span>of Us</span>
+    </h1>
+
+
+    <p class="subtitle">
+        Five universes. Infinite possibilities.
+        One universe we call ours.
+    </p>
+
+
+    <div class="anniversary">
+
+        <span>
+            HAPPY ANNIVERSARY
+        </span>
+
+        <strong>
+            22 NOVEMBER
+        </strong>
+
+    </div>
+
+
+    <!-- HERO PLANET -->
+
+    <div class="hero-space">
+
+        <div class="hero-ring"></div>
+
+        <div class="hero-ring second"></div>
+
+        <div class="hero-planet">
+
+            <div class="hero-moon"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     UNIVERSES
+======================================================= -->
+
+<section>
+
+<h2 class="section-title">
+    Choose a Universe
+</h2>
+
+
+<div class="universe-grid">
+
+
+<!-- UNIVERSE 1 -->
+
+<article
+class="universe-card"
+onclick="openLock(0)"
+>
+
+    <div class="universe-number">
+        UNIVERSE 01
+    </div>
+
+    <h3>
+        The Universe Where We Never Met
+    </h3>
+
+    <p>
+        A life where our paths never crossed.
+    </p>
+
+    <div class="card-planet planet-one"></div>
+
+    <span class="locked">
+        LOCKED · 1122
+    </span>
+
+</article>
+
+
+
+<!-- UNIVERSE 2 -->
+
+<article
+class="universe-card"
+onclick="openLock(1)"
+>
+
+    <div class="universe-number">
+        UNIVERSE 02
+    </div>
+
+    <h3>
+        The Universe Where We're Ariana and Laith
+    </h3>
+
+    <p>
+        Somehow, even as different people,
+        we still find each other.
+    </p>
+
+    <div class="card-planet planet-two"></div>
+
+    <span class="locked">
+        LOCKED · 1122
+    </span>
+
+</article>
+
+
+
+<!-- UNIVERSE 3 -->
+
+<article
+class="universe-card"
+onclick="openLock(2)"
+>
+
+    <div class="universe-number">
+        UNIVERSE 03
+    </div>
+
+    <h3>
+        The Universe Where We Grew Up Together
+    </h3>
+
+    <p>
+        A childhood, a lifetime,
+        and every memory in between.
+    </p>
+
+    <div class="card-planet planet-three"></div>
+
+    <span class="locked">
+        LOCKED · 1122
+    </span>
+
+</article>
+
+
+
+<!-- UNIVERSE 4 -->
+
+<article
+class="universe-card"
+onclick="openLock(3)"
+>
+
+    <div class="universe-number">
+        UNIVERSE 04
+    </div>
+
+    <h3>
+        The Universe Where We're Mickey and Minnie
+    </h3>
+
+    <p>
+        A cartoon universe where
+        forever really means forever.
+    </p>
+
+    <div class="card-planet planet-four"></div>
+
+    <span class="locked">
+        LOCKED · 1122
+    </span>
+
+</article>
+
+
+
+<!-- UNIVERSE 5 -->
+
+<article
+class="universe-card"
+onclick="openLock(4)"
+>
+
+    <div class="universe-number">
+        UNIVERSE 05
+    </div>
+
+    <h3>
+        The Universe I'm Most Grateful For
+    </h3>
+
+    <p>
+        The universe where
+        we actually found each other.
+    </p>
+
+    <div class="card-planet planet-five"></div>
+
+    <span class="locked">
+        LOCKED · 1122
+    </span>
+
+</article>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress">
+
+    <span id="progressText">
+        0 of 5 universes discovered
+    </span>
+
+    <div class="progress-bar">
+
+        <div
+        class="progress-fill"
+        id="progressFill">
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     MEMORIES FOLDER
+======================================================= -->
+
+<div
+class="memories-folder"
+onclick="openGallery()"
+>
+
+<div class="folder-left">
+
+    <div class="folder-icon"></div>
+
+    <div>
+
+        <h3>
+            Our Memories
+        </h3>
+
+        <p>
+            A little folder for the moments
+            that belong to us.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="open-folder">
+    OPEN FOLDER →
+</div>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    Made for my favourite person
+    in every universe.
+
+    <br>
+
+    ♡ 22.11 ♡
+
+</footer>
+
+</main>
+
+
+
+<!-- =======================================================
+     PASSWORD MODAL
+======================================================= -->
+
+<div
+class="modal"
+id="lockModal"
+>
+
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeModal('lockModal')"
+>
+×
+</button>
+
+
+<div class="lock-symbol">
+    ◌
+</div>
+
+
+<h2>
+    Unlock This Universe
+</h2>
+
+
+<p class="modal-description">
+
+    Every universe has a secret.
+
+    Enter the code to cross into it.
+
+</p>
+
+
+<input
+id="passwordInput"
+class="password"
+type="password"
+inputmode="numeric"
+maxlength="4"
+placeholder="••••"
+autocomplete="off"
+>
+
+
+<div
+id="passwordError"
+class="error">
+</div>
+
+
+<button
+class="button"
+onclick="unlockUniverse()"
+>
+    Enter Universe
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- =======================================================
+     STORY MODAL
+======================================================= -->
+
+<div
+class="modal"
+id="storyModal"
+>
+
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeModal('storyModal')"
+>
+×
+</button>
+
+
+<div
+id="storyIcon"
+class="story-icon">
+</div>
+
+
+<h2
+id="storyTitle"
+class="story-title">
+</h2>
+
+
+<div
+id="storyText"
+class="story-text">
+</div>
+
+
+<div id="finalMessage"></div>
+
+
+<div class="story-buttons">
+
+<button
+class="button"
+onclick="nextUniverse()"
+>
+    Next Universe →
+</button>
+
+
+<button
+class="button"
+onclick="closeModal('storyModal')"
+>
+    Close
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =======================================================
+     MEMORIES GALLERY
+======================================================= -->
+
+<div
+class="modal"
+id="galleryModal"
+>
+
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeModal('galleryModal')"
+>
+×
+</button>
+
+
+<div class="story-icon">
+    ✦
+</div>
+
+
+<h2 class="gallery-title">
+    Our Memories
+</h2>
+
+
+<p class="gallery-subtitle">
+
+    Two little pieces of our universe.
+
+</p>
+
+
+<div class="gallery-grid">
+
+
+<!--
+=========================================================
+YOUR FIRST PHOTO
+=========================================================
+
+Later put your photo inside:
+
+images/photo1.jpeg
+
+=========================================================
+-->
+
+<div class="photo-card">
+
+    <img
+    src="images/photo1.jpeg"
+    alt="Our first memory"
+    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+    >
+
+    <div
+    class="photo-placeholder"
+    style="display:none;"
+    >
+        Add your first photo here:<br><br>
+        images/photo1.jpeg
+    </div>
+
+    <div class="photo-caption">
+        A little moment from our universe.
+    </div>
+
+</div>
+
+
+
+<!--
+=========================================================
+YOUR SECOND PHOTO
+=========================================================
+
+Later put your photo inside:
+
+images/photo2.jpeg
+
+=========================================================
+-->
+
+<div class="photo-card">
+
+    <img
+    src="images/photo2.jpeg"
+    alt="Our second memory"
+    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+    >
+
+    <div
+    class="photo-placeholder"
+    style="display:none;"
+    >
+        Add your second photo here:<br><br>
+        images/photo2.jpeg
+    </div>
+
+    <div class="photo-caption">
+        Another little piece of us.
+    </div>
+
+</div>
+
+</div>
+
+
+<p
+style="
+text-align:center;
+color:#777d94;
+font-size:10px;
+margin-top:20px;
+line-height:1.7;
+"
+>
+You can add more memories later.
+</p>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+const PASSWORD = "1122";
+
+
+/* =========================================================
+   UNIVERSE STORIES
+========================================================= */
+
+const universes = [
+
+{
+
+icon: "◉",
+
+title:
+"The Universe Where We Never Met",
+
+text:
+`In this universe, we never meet.
+
+I wake up every day, go to work, and come home, just like any other day. Rawan never tries to introduce us to each other, and our paths never cross.
+
+I grow older, living my life without ever knowing you existed. I spend my entire life not knowing what I'm missing or that somewhere out there, there was someone like you.
+
+And maybe that's the saddest part of this universe. I never get to know what it feels like to have you in my life.`
+
+},
+
+
+
+{
+
+icon: "◌",
+
+title:
+"The Universe Where We're Ariana and Laith",
+
+text:
+`In this universe, I'm a lady named Ariana, and you're a man named Laith.
+
+We get to know each other through our mutual friend, your cousin Radwan, and somehow, somewhere along the way, we fall in love and end up getting married.
+
+Hahahahahaha. I had to include this one.
+
+I don't know how this universe works, but apparently, even when we're completely different people, somehow we still find our way to each other.`
+
+},
+
+
+
+{
+
+icon: "✦",
+
+title:
+"The Universe Where We Grew Up Together",
+
+text:
+`This is one of my favourites.
+
+We meet when we're still little. It's 2010. I'm walking through the streets of Riyadh when I stumble upon you at a park.
+
+We're around 10 and 6 years old, and somehow, we become friends.
+
+We grow up together. We make memories, experience life side by side, and watch each other change over the years.
+
+We see each other's childhoods, awkward phases, dreams, fears, and everything in between.
+
+Before we even realise it, we've become such a huge part of each other's lives that being together feels like the most natural thing in the world.
+
+And eventually, we get married.
+
+I really love this universe because it means I would've had you in my life for almost as long as I could remember.`
+
+},
+
+
+
+{
+
+icon: "●",
+
+title:
+"The Universe Where We're Mickey and Minnie",
+
+text:
+`In this universe, my name is Mickey and yours is Minnie.
+
+We're just two fictional characters living in the Disney universe.
+
+We meet in Disney (City Run) in 1928, when Daisy Duck introduces us to each other.
+
+We become inseparable, fall in love, and stay together forever.
+
+And we'll be together forever because we're cartoons. We're not real people, so we don't grow old and we don't die there.
+
+Which means, in this universe, forever really does mean forever.`
+
+},
+
+
+
+{
+
+icon: "♡",
+
+title:
+"The Universe I'm Most Grateful For",
+
+final: true,
+
+text:
+`And then there's this universe.
+
+The one we're actually living in.
+
+The one I'm genuinely so grateful to be a part of.
+
+Out of every possible universe, every possible version of our lives, every possible path we could've taken, somehow we ended up here.
+
+Here, where I met you.
+
+Here, where I got to know you.
+
+Here, where we fell in love.
+
+Here, where we made our own memories.
+
+I honestly don't know what I'd do without you, and I'm so happy we've made it to one year together.
+
+I hope this is only the beginning of many more years. I hope every year ahead brings better things for you and for us. I hope life is kinder to you, that you achieve everything you dream of, and that we continue growing together through everything life brings our way.
+
+I'm sorry this is a little late, but I really wanted you to know how much you mean to me.
+
+Because out of all the universes we could've existed in, all the people we could've been, and all the lives we could've lived...
+
+This is the universe where we found each other.
+
+And honestly?
+
+I wouldn't trade this universe for any other.`
+
+}
+
+];
+
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let selectedUniverse = 0;
+
+let unlockedUniverses = new Set();
+
+
+
+/* =========================================================
+   OPEN PASSWORD
+========================================================= */
+
+function openLock(index) {
+
+    selectedUniverse = index;
+
+    document
+        .getElementById("passwordInput")
+        .value = "";
+
+    document
+        .getElementById("passwordError")
+        .textContent = "";
+
+    document
+        .getElementById("lockModal")
+        .classList
+        .add("active");
+
+    setTimeout(() => {
+
+        document
+            .getElementById("passwordInput")
+            .focus();
+
+    }, 150);
+}
+
+
+
+/* =========================================================
+   UNLOCK
+========================================================= */
+
+function unlockUniverse() {
+
+    const entered =
+        document
+            .getElementById("passwordInput")
+            .value;
+
+
+    if (entered !== PASSWORD) {
+
+        document
+            .getElementById("passwordError")
+            .textContent =
+            "Wrong code. Try again.";
+
+        return;
+    }
+
+
+    unlockedUniverses.add(
+        selectedUniverse
+    );
+
+
+    updateProgress();
+
+
+    closeModal("lockModal");
+
+
+    showUniverse(
+        selectedUniverse
+    );
+}
+
+
+
+/* =========================================================
+   SHOW STORY
+========================================================= */
+
+function showUniverse(index) {
+
+    selectedUniverse = index;
+
+
+    const universe =
+        universes[index];
+
+
+    document
+        .getElementById("storyIcon")
+        .textContent =
+        universe.icon;
+
+
+    document
+        .getElementById("storyTitle")
+        .textContent =
+        universe.title;
+
+
+    document
+        .getElementById("storyText")
+        .textContent =
+        universe.text;
+
+
+    const final =
+        document
+            .getElementById("finalMessage");
+
+
+    if (universe.final) {
+
+        final.innerHTML = `
+
+        <div class="anniversary-final">
+
+            <div class="anniversary-final-title">
+                HAPPY ANNIVERSARY
+            </div>
+
+            <div class="anniversary-final-date">
+                22 NOVEMBER · ONE YEAR
+            </div>
+
+            <div class="anniversary-final-message">
+                I wouldn't trade this universe
+                for any other.
+            </div>
+
+        </div>
+
+        `;
+
+    } else {
+
+        final.innerHTML = "";
+
+    }
+
+
+    document
+        .getElementById("storyModal")
+        .classList
+        .add("active");
+}
+
+
+
+/* =========================================================
+   NEXT UNIVERSE
+========================================================= */
+
+function nextUniverse() {
+
+    closeModal("storyModal");
+
+
+    setTimeout(() => {
+
+        let next =
+            (selectedUniverse + 1)
+            % universes.length;
+
+
+        if (
+            unlockedUniverses.has(next)
+        ) {
+
+            showUniverse(next);
+
+        } else {
+
+            openLock(next);
+
+        }
+
+    }, 250);
+}
+
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal(id) {
+
+    document
+        .getElementById(id)
+        .classList
+        .remove("active");
+}
+
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+function updateProgress() {
+
+    const count =
+        unlockedUniverses.size;
+
+
+    document
+        .getElementById("progressText")
+        .textContent =
+        `${count} of 5 universes discovered`;
+
+
+    document
+        .getElementById("progressFill")
+        .style.width =
+        `${count * 20}%`;
+}
+
+
+
+/* =========================================================
+   ENTER KEY FOR PASSWORD
+========================================================= */
+
+document
+    .getElementById("passwordInput")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                unlockUniverse();
+
+            }
+
+        }
+    );
+
+
+
+/* =========================================================
+   CLICK OUTSIDE MODAL
+========================================================= */
+
+document
+    .querySelectorAll(".modal")
+    .forEach(function(modal) {
+
+        modal.addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    event.target === modal
+                ) {
+
+                    modal.classList
+                        .remove("active");
+
+                }
+
+            }
+        );
+
+    });
+
+
+
+/* =========================================================
+   CREATE STARS
+========================================================= */
+
+const space =
+    document.getElementById("space");
+
+
+for (let i = 0; i < 130; i++) {
+
+    const star =
+        document.createElement("span");
+
+
+    star.className = "star";
+
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+
+    star.style.animationDelay =
+        Math.random() * 4 + "s";
+
+
+    star.style.width =
+        Math.random() * 2 + 1 + "px";
+
+
+    star.style.height =
+        star.style.width;
+
+
+    space.appendChild(star);
+
+}
+
+
+
+/* =========================================================
+   CREATE SHOOTING STARS
+========================================================= */
+
+for (let i = 0; i < 5; i++) {
+
+    const shooting =
+        document.createElement("span");
+
+
+    shooting.className =
+        "shooting-star";
+
+
+    shooting.style.left =
+        20 + Math.random() * 70 + "%";
+
+
+    shooting.style.top =
+        5 + Math.random() * 70 + "%";
+
+
+    shooting.style.animationDelay =
+        i * 2 + Math.random() * 2 + "s";
+
+
+    space.appendChild(
+        shooting
+    );
+
+}
+
+</script>
+
+</body>
+</html>
